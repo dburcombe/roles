@@ -1,0 +1,8 @@
+[hosts]
+20.87.214.18 
+[hosts:vars]
+ansible_user=dburc
+ansible_connection=local
+
+
+
