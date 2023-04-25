@@ -1,6 +1,7 @@
-[hosts]
+[linux_agents]
 20.87.214.18 
-[hosts:vars]
+
+[linux_agents:vars]
 ansible_user=dburc
 ansible_connection=local
 
