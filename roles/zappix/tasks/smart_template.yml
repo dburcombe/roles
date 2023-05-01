@@ -1,0 +1,20 @@
+---
+- block:
+    - name: Install smartmontools
+      ansible.builtin.apt:
+        pkg:
+        - smartmontools
+        - sudo
+        state: latest
+        update_cache: true
+
+    - name: Allow SMART for zabbix
+      community.general.sudoers:
+        name: zabbix-smart
+        state: present
+        user: zabbix
+        nopassword: true
+        commands: /usr/sbin/smartctl
+      notify: Restart and enable zabbix-agent2
+
+  when: ansible_virtualization_role == 'host'
